@@ -5,6 +5,7 @@ const valueTypeof = (value, type) => {
   }
   return thisType === `[object ${type}]`;
 };
+
 const valueLength = (value) => {
   try {
     return Object.values(value).length;
@@ -12,6 +13,7 @@ const valueLength = (value) => {
     return 0;
   }
 };
+
 const queryDomNode = (selector) => {
   const domNodeList = document.querySelectorAll(selector);
   if (!domNodeList.length) {
@@ -22,6 +24,7 @@ const queryDomNode = (selector) => {
     return Array.from(domNodeList).find((e) => e);
   }
 };
+
 const isDomNode = (node) => {
   if (["HTML", "Element"].every((e) => valueTypeof(node).includes(e))) {
     return node;
@@ -30,6 +33,7 @@ const isDomNode = (node) => {
   }
   return null;
 };
+
 const createDomNode = (tagName, options = {}) => {
   const domNode = document.createElement(tagName, options.crerateOptions);
   if (!options) {
